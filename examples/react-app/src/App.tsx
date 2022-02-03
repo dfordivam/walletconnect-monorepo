@@ -165,7 +165,7 @@ class App extends React.Component<any, any> {
       await this.loadChainData();
       const client = await Client.init({
         logger: DEFAULT_LOGGER,
-        relayUrl: DEFAULT_RELAY_URL,
+        relayUrl: "wss://relay.walletconnect.org",
         projectId: DEFAULT_PROJECT_ID,
       });
       this.setState({ loading: false, client });
