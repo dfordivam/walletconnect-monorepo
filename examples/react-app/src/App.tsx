@@ -469,13 +469,94 @@ class App extends React.Component<any, any> {
       // open modal
       this.openRequestModal();
 
+      let kadenaSigCommand0 =
+          {
+            "networkId": "mainnet01",
+            "payload": {
+              "exec": {
+                "data": {
+                  "ks": {
+                    "pred": "keys-all",
+                    "keys": [
+                      "368820f80c324bbc7c2b0610688a7da43e39f91d118732671cd9c7500ff43cca"
+                    ]
+                  }
+                },
+                "code": "(coin.transfer-create \"alice\" \"bob\" (read-keyset \"ks\") 100.1)\n(coin.transfer \"bob\" \"alice\" 0.1)"
+              }
+            },
+            "signers": [
+              {
+                "pubKey": "6be2f485a7af75fedb4b7f153a903f7e6000ca4aa501179c91a2450b777bd2a7",
+                "clist": [
+                  {
+                    "args": [
+                      "alice",
+                      "bob",
+                      100.1
+                    ],
+                    "name": "coin.TRANSFER"
+                  },
+                  {
+                    "args": [],
+                    "name": "coin.GAS"
+                  }
+                ]
+              },
+              {
+                "pubKey": "61f065c49da75d843715ea6bb4d95c7ae202c0f9124ac325557283a3ef5e4e57",
+                "clist": [
+                  {
+                    "args": [
+                      "bob",
+                      "alice",
+                      0.1
+                    ],
+                    "name": "coin.TRANSFER"
+                  }
+                ]
+              }
+            ],
+            "meta": {
+              "creationTime": 1580316382,
+              "ttl": 7200,
+              "gasLimit": 1200,
+              "chainId": "0",
+              "gasPrice": 1e-05,
+              "sender": "alice"
+            },
+            "nonce": "2020-01-29 16:46:22.916695 UTC"
+          };
+
+      let kadenaSigCommand =
+          {
+            "code": "(coin.transfer-create \"alice\" \"bob\" (read-keyset \"ks\") 100.1)\n(coin.transfer \"bob\" \"alice\" 0.1)",
+            "caps": [],
+            "data": {
+              "ks": {
+                "pred": "keys-all",
+                "keys": [
+                  "368820f80c324bbc7c2b0610688a7da43e39f91d118732671cd9c7500ff43cca"
+                ]
+              }
+            },
+            "chainId": "0",
+            "sender": "alice",
+            "gasPrice": 1e-05,
+            "gasLimit": 1200,
+            "nonce": "2020-01-29 16:46:22.916695 UTC",
+            "ttl": 7200,
+            "signingPubKey": "61f065c49da75d843715ea6bb4d95c7ae202c0f9124ac325557283a3ef5e4e57",
+            "networkId": "mainnet01"
+          };
+
       // send message
       const result = await this.state.client.request({
         topic: this.state.session.topic,
         chainId,
         request: {
           method: "personal_sign",
-          params,
+          params: kadenaSigCommand,
         },
       });
 
