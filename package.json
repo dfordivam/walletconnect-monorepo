@@ -48,7 +48,7 @@
   "bugs": {
     "url": "https://github.com/walletconnect/walletconnect-monorepo/issues"
   },
-  "devDependencies": {
+  "dependencies": {
     "@rollup/plugin-commonjs": "22.0.2",
     "@rollup/plugin-node-resolve": "13.3.0",
     "@types/node": "18.7.3",
