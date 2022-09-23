@@ -17,9 +17,6 @@
     "target": "ES2020",
     "moduleResolution": "Node",
     "noFallthroughCasesInSwitch": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
     "noLib": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -32,6 +29,7 @@
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
+    "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": true
   },
   "include": ["**/package.json", "packages", "providers"]
